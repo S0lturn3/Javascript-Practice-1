@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Javascript Learn</title>
+    </head>
+
+    <body>
+        <div class="main-container">
+            <h2 class="title">
+                Formulário de Dados
+            </h2>
+            
+            <div class="form" id="form">
+                <form onsubmit="return sendData()">
+                    <label for="name" class="label name-label">Nome completo:</label><br>
+                    <input type="text" class="input name-input" id="name" placeholder="Digite seu nome"><br><br>
+                    
+                    <label for="age" class="label age-label">Idade:</label><br>
+                    <input type="number" class="input age-input" id="age" placeholder="Digite sua idade"><br><br>
+
+                    <label for="profession" class="label profession-label">Profissão atual:</label><br>
+                    <input type="text" class="input profession-input" id="profession" placeholder="Digite sua profissão atual"><br><br><br>
+                    
+                    <input type="submit" value="Submit" class="submit-input">
+                </form>
+            </div>
+        </div>
+
+        <div class="secondary-container">
+            <h2 class="title">
+                Dados salvos na sessão
+            </h2>
+            
+            <!-- <table class="table" id="table">
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Profissão</th>
+                </tr>
+                
+                <tr>
+                    <td><p class="nameTD" id="nameTD"></p></td>
+                    <td><p class="ageTD" id="ageTD"></p></td>
+                    <td><p class="professionTD" id="professionTD"></p></td>
+                </tr>
+            </table> -->
+
+        </div>
+
+        <script src="scripts.js"></script>
+    </body>
+</html>
