@@ -1,12 +1,14 @@
-// var nome = [];
-// var idade = [];
-// var profissao = [];
+var nome = [];
+var idade = [];
+var profissao = [];
 
 //  Criado um objeto que armazena as informações
-let dados = {nome:[], idade:[], profissao:[]};
+// let dados = [
+//     {nome:[], idade:[], profissao:[]}
+// ];
 
 //  As informações do objeto são convertidas para o Array abaixo
-let tablerow = [dados];
+var tablerow = [{ nome, idade, profissao }];
 
 
 //  #region Funções
@@ -19,19 +21,22 @@ function sendData() {
     //  Verificação se todos os campos foram preenchidos
     if (nomein == "" || idadein == "" || profissaoin == "") {
         alert("Preencha todos os campos de dados para prosseguir!");
-    } 
+    }
     else {
         //  O statement "<array/object>.push(<variavel>);" serve para adicionar o valor da variável no array
-        dados.nome.push(nomein);                     //  Adiciona os valores na Coluna 'nome' do Objeto 'tablerow'
-        dados.idade.push(idadein);                   //  Adiciona os valores na Coluna 'idade' do Objeto 'tablerow'
-        dados.profissao.push(profissaoin);           //  Adiciona os valores na Coluna 'profissao' do Objeto 'tablerow'
+        tablerow.nome.push(nomein);
+        tablerow.idade.push(idadein);
+        tablerow.profissao.push(profissaoin);
+        //  dados.nome.push(nomein);                     Adiciona os valores na Coluna 'nome' do Objeto 'tablerow'
+        //  dados.idade.push(idadein);                   Adiciona os valores na Coluna 'idade' do Objeto 'tablerow'
+        //  dados.profissao.push(profissaoin);           Adiciona os valores na Coluna 'profissao' do Objeto 'tablerow'
         
         //  Ao clicar no botão de 'Submit' os valores serão salvos e os campos serão limpos para armazenar os próximos dados mais rapidamente
-        document.getElementById('name').value = '';
-        document.getElementById('age').value = '';
-        document.getElementById('profession').value = '';
+        // document.getElementById('name').value = '';
+        // document.getElementById('age').value = '';
+        // document.getElementById('profession').value = '';
         //  Alerta confirmando que as informações foram salvas
-        alert("Informações inseridas!");
+        // alert("Informações inseridas!");
     }
     
     // showData(tablerow);
@@ -64,32 +69,17 @@ btnGet.addEventListener('click', () => {
     //#endregion
 
     //#region Este pedaço cria os Rows com dados
-    tablerow.forEach(dados => {
+    tablerow.forEach(info => {
         let row = document.createElement('tr');
 
-        Object.values(dados.nome).forEach(text => {
-            let nameCell = document.createElement('td');
-            let nameTextNode = document.createTextNode(text);
+        Object.values(info).forEach(text => {
+            let cell = document.createElement('td');
+            let textNode = document.createTextNode(text);
 
-            nameCell.appendChild(nameTextNode);
-            row.appendChild(nameCell);
+            cell.appendChild(textNode);
+            row.appendChild(cell);
         });
 
-        Object.values(dados.idade).forEach(text => {
-            let ageCell = document.createElement('td');
-            let ageTextNode = document.createTextNode(text);
-
-            ageCell.appendChild(ageTextNode);
-            row.appendChild(ageCell);
-        });
-
-        Object.values(dados.profissao).forEach(text => {
-            let profCell = document.createElement('td');
-            let profTextNode = document.createTextNode(text);
-
-            profCell.appendChild(profTextNode);
-            row.appendChild(profCell);
-        });
         table.appendChild(row);
     });
     //#endregion
